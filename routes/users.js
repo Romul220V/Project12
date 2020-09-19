@@ -8,7 +8,7 @@ router.get('/users', (req, res) => {
     const users = JSON.parse(buff);
     res.send(users);
   } catch (error) {
-    res.status(500).send('Произошла ошибка');
+    res.status(500).send({ message: 'Произошла ошибка' });
   }
 });
 
@@ -17,6 +17,7 @@ router.get('/users/:_id', (req, res) => {
     const buff = fs.readFileSync('./data/users.json');
     const users = JSON.parse(buff);
     const user = users.find((elem) => {
+      // eslint-disable-next-line no-underscore-dangle
       if (elem._id === req.params._id) {
         return true;
       }
@@ -29,7 +30,7 @@ router.get('/users/:_id', (req, res) => {
 
     res.send(user);
   } catch (error) {
-    res.status(500).send('Произошла ошибка');
+    res.status(500).send({ message: 'Произошла ошибка' });
   }
 });
 

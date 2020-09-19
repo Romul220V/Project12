@@ -7,7 +7,7 @@ router.get('/cards', (req, res) => {
     const cards = JSON.parse(buff);
     res.send(cards);
   } catch (error) {
-    res.status(500).send('Произошла ошибка');
+    res.status(500).send({ message: 'Произошла ошибка' });
   }
 });
 
