@@ -1,8 +1,10 @@
+/* eslint-disable no-console */
 const express = require('express');
-const path = require ('path');
+const path = require('path');
 const users = require('./routes/users');
 const cards = require('./routes/cards');
 const errorpage = require('./routes/404');
+
 const { PORT = 3000, BASE_PATH } = process.env;
 
 const app = express();
